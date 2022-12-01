@@ -1,0 +1,3 @@
+int 5
+int 4
+float 3.1
