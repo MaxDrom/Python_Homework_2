@@ -27,7 +27,7 @@ def numbers_with_sum_of_digits_count(sum_of_digits, number_of_digits):
 
 def lucky_tickets_count(n):
     res = 0
-    for i in range(28):
+    for i in range(9*n+1):
         res +=  numbers_with_sum_of_digits_count(i, n)*numbers_with_sum_of_digits_count(i, n)
     return res
 
