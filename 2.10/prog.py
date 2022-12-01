@@ -6,7 +6,7 @@ class FunctionCache:
     def __call__(self, *args):
         if(args in self.cached_calls):
             arg_str = ", ".join(f'{arg}' for arg in args)
-            #print("Using cached value for arguments " + arg_str)
+            print("Using cached value for arguments " + arg_str)
             return self.cached_calls[args]
         result = self.function(*args)
         self.cached_calls[args] = result
