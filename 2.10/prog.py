@@ -19,9 +19,7 @@ def numbers_with_sum_of_digits_count(sum_of_digits, number_of_digits):
             return 1
         return 0
     res = 0
-    for i in range(10):
-        if sum_of_digits-i < 0:
-            break
+    for i in range(min(sum_of_digits,9)+1):
         res+=numbers_with_sum_of_digits_count(sum_of_digits-i, number_of_digits-1)
     return res
 
