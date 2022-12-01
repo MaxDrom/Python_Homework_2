@@ -6,7 +6,7 @@ class FunctionCache:
     def __call__(self, *args):
         if(args in self.cached_calls):
             arg_str = ", ".join(f'{arg}' for arg in args)
-            print("Using cached value for arguments " + arg_str)
+            #print("Using cached value for arguments " + arg_str)
             return self.cached_calls[args]
         result = self.function(*args)
         self.cached_calls[args] = result
@@ -26,9 +26,9 @@ def numbers_with_sum_of_digits_count(sum_of_digits, number_of_digits):
 def lucky_tickets_count(n):
     res = 0
     for i in range(9*n+1):
-        res +=  numbers_with_sum_of_digits_count(i, n)*numbers_with_sum_of_digits_count(i, n)
+        res +=  numbers_with_sum_of_digits_count(i, n)**2
     return res
 
 #numbers_with_sum_of_digits_count=FunctionCache(numbers_with_sum_of_digits_count)
-n = int(input("Число цифр в билете (должно быть четным): "))/2
+n = int(input("Число цифр в билете (должно быть четным): "))//2
 print(f'Число счастливых билетов: {lucky_tickets_count(n)}')
