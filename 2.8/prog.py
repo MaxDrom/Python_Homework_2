@@ -1,6 +1,8 @@
 import math
+
 class Vector_base:
     pass
+
 def make_ndim_vector_class(n):    
     class Vector(Vector_base):
         dims = 0
