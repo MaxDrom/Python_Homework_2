@@ -8,7 +8,7 @@ def make_ndim_vector_class(n):
         dims = 0
         def __init__(self, *coords):
             if(len(coords) != Vector.dims):
-                raise TypeError(f'Вектор размерности {Vector.dims}, но координат указано {len(coords)}')
+                raise TypeError(f'Number of coordinates must be equal to {Vector.dims}, but given {len(coords)}')
             self.coords = coords
         
         def get_length(self):
@@ -22,9 +22,9 @@ def make_ndim_vector_class(n):
         
         def __add__(self, b):
             if (not isinstance(b, Vector_base)) :
-                raise TypeError(f'Вектор можно сложить только с вектором, но второе слагаемое имеет тип {type(b)}')
+                raise TypeError(f'Second argument must be vector, but {type(b)}')
             if Vector.dims != type(b).dims:
-                raise TypeError(f'Попытка сложить вектора разной размерности. Размерность первого {self.dims}; размерность второго {b.dims}')
+                raise TypeError(f'Dimensions of the vectors must be equal ({Vector.dims} != {type(b).dims}). ')
             new_coords =map(lambda x,y: x+y, self.coords, b.coords)
             return Vector(*new_coords)
         
